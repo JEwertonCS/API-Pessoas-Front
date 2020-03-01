@@ -11,4 +11,8 @@ public class AdminController {
         return "index";
     }
 
+    @GetMapping("/versao-2")
+    public String indexVersao2(){
+        return "index-2";
+    }
 }

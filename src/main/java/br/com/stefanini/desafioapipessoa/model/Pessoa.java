@@ -1,16 +1,27 @@
 package br.com.stefanini.desafioapipessoa.model;
 
-import java.util.Date;
+import org.hibernate.validator.constraints.br.CPF;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 public class Pessoa {
 
     private String id;
+
+    @NotBlank( message = "Nome é obrigatório")
     private String nome;
     private String sexo;
+
+    @NotBlank( message = "Data de nascimento é obrigatório")
     private String dataNascimento;
     private String naturalidade;
     private String nacionalidade;
+
+    @CPF
     private String cpf;
+
+    @Email
     private String email;
     private Endereco endereco;
 
