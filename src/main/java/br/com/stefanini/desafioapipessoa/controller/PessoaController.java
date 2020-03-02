@@ -10,21 +10,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class PessoaController {
 
     private RestTemplate restTemplate = RestTemplateConfig.getInstance();
-    private static String URL_BASE = "http://3.210.232.150:8080/pessoas";
-    private static String URL_BASE_VERSAO2 = "http://3.210.232.150:8080/pessoas/versao2";
+    private static final String URL_BASE = "http://3.210.232.150:8080/pessoas";
+    private static final String URL_BASE_VERSAO2 = "http://3.210.232.150:8080/pessoas/versao2";
 
     @GetMapping("/pessoa/cadastrar")
     public String cadastrar(Pessoa pessoa){
@@ -109,11 +110,15 @@ public class PessoaController {
             return editar(updatedPessoa.getCpf(),  model);
         }
 
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("id", id);
-
         restTemplate.put( URL_BASE.concat("/") + id , updatedPessoa );
         attributes.addFlashAttribute( "mensagem", "Editado com sucesso!" );
+        return "redirect:/";
+    }
+
+    @GetMapping("/pessoa/excluir/{id}")
+    public String excluir( @PathVariable String id, RedirectAttributes attributes){
+        restTemplate.delete( URL_BASE.concat("/") + id );
+        attributes.addFlashAttribute( "mensagem", "Excluido com sucesso!" );
         return "redirect:/";
     }
 }
