@@ -57,16 +57,38 @@
             </div>
 
         </div> <!-- Fim SECTION Dados Basicos -->
-
+<!--
         <div class="section">
             <h5>Endereço</h5>
             <div class="row">
+                <div class="input-field col s6">
+                    <input id="cep" type="text" class="validate" th:field="${pessoa.endereco.cep}" disabled="disabled" />
+                    <label for="cep">CEP</label>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="input-field col s12">
-                    <input id="logradouro" type="text" th:field="${pessoa.endereco.logradouro}" disabled="disabled" />
+                    <input id="logradouro" type="text" class="validate" th:field="${pessoa.endereco.logradouro}" disabled="disabled" />
                     <label for="logradouro">Logradouro</label>
                 </div>
             </div>
-        </div> <!-- Fim SECTION Endereco -->
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="bairro" type="text" class="validate" th:field="${pessoa.endereco.bairro}" disabled="disabled" />
+                    <label for="bairro">Bairro</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="cidade" type="text" class="validate" th:field="${pessoa.endereco.cidade}" disabled="disabled" />
+                    <label for="cidade">Cidade</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="estado" type="text" class="validate" th:field="${pessoa.endereco.estado}" disabled="disabled" />
+                    <label for="estado">Estado</label>
+                </div>
+            </div>
+        </div>-->
+        <!-- Fim SECTION Endereco -->
 
         <div class="row">
             <div class="input-field col s12 center">
