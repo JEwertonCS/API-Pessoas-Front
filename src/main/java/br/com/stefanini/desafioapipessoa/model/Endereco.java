@@ -2,6 +2,7 @@ package br.com.stefanini.desafioapipessoa.model;
 
 import javax.validation.constraints.NotBlank;
 
+
 public class Endereco {
 
     private String id;

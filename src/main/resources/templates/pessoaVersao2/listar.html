@@ -27,13 +27,13 @@
                 <td style="text-align: center;"><span th:text="${pessoa.dataNascimento}"></span></td>
                 <td style="text-align: center;"><span th:text="${pessoa.cpf}"></span></td>
                 <td style="text-align: center;">
-                    <a th:href="@{'/pessoa/visualizar/' + ${pessoa.cpf}}" title="Visualizar">
+                    <a th:href="@{'/pessoaVersao2/visualizar/' + ${pessoa.cpf}}" title="Visualizar">
                         <i class="material-icons ">perm_contact_calendar</i>
                     </a>
-                    <a th:href="@{'/pessoa/editar/' + ${pessoa.cpf}}" title="Editar">
+                    <a th:href="@{'/pessoaVersao2/editar/' + ${pessoa.cpf}}" title="Editar">
                         <i class="material-icons ">create</i>
                     </a>
-                    <a th:href="@{'/pessoa/excluir/' + ${pessoa.id}}" title="Excluir">
+                    <a th:href="@{'/pessoaVersao2/excluir/' + ${pessoa.id}}" title="Excluir">
                         <i class="material-icons ">delete_forever</i>
                     </a>
                   </td>
